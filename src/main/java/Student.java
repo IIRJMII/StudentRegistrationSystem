@@ -1,4 +1,6 @@
 import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
+import org.joda.time.Years;
 import org.joda.time.format.DateTimeFormat;
 
 import java.util.ArrayList;
@@ -12,10 +14,10 @@ public class Student {
     private ArrayList<CourseProgramme> courses = new ArrayList<CourseProgramme>();
     private ArrayList<Module> modules = new ArrayList<Module>();
 
-    public Student(String name, int age, DateTime DOB, int ID) {
+    public Student(String name, DateTime DOB, int ID) {
         this.name = name;
-        this.age = age;
         this.DOB = DOB;
+        this.age = getAge();
         this.ID = ID;
         this.username = getUsername();
     }
@@ -25,7 +27,7 @@ public class Student {
     }
 
     public int getAge() {
-        return this.age;
+        return Years.yearsBetween(this.DOB, new DateTime()).getYears();
     }
 
     public DateTime getDOB() {
@@ -52,10 +54,6 @@ public class Student {
         this.name = name;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     public void setDOB(DateTime DOB) {
         this.DOB = DOB;
     }
@@ -65,27 +63,35 @@ public class Student {
     }
 
     public void addCourse(CourseProgramme course) {
-        this.courses.add(course);
-        course.addStudent(this);
+        if(!this.courses.contains(course)) {
+            this.courses.add(course);
+            course.addStudent(this);
+        }
     }
 
     public void removeCourse(CourseProgramme course) {
-        this.courses.remove(course);
-        course.removeStudent(this);
+        if(this.courses.contains(course)) {
+            this.courses.remove(course);
+            course.removeStudent(this);
+        }
     }
 
     public void addModule(Module module) {
-        this.modules.add(module);
-        module.addStudent(this);
+        if(!this.modules.contains(module)) {
+            this.modules.add(module);
+            module.addStudent(this);
+        }
     }
 
     public void removeModule(Module module) {
-        this.courses.remove(module);
-        module.removeStudent(this);
+        if(this.modules.contains(module)) {
+            this.courses.remove(module);
+            module.removeStudent(this);
+        }
     }
 
     public static void main(String args[]) {
-        Student s = new Student("Robert", 22, new DateTime("1998-05-18"), 17431096);
+        Student s = new Student("Robert", new DateTime("1998-05-18"), 17431096);
         System.out.println("Student name: " + s.getName());
         System.out.println("Student age: " + s.getAge());
         System.out.println("Student DOB: " + s.getDOB().toString(DateTimeFormat.shortDate()));

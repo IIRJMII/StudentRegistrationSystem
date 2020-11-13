@@ -48,22 +48,30 @@ public class CourseProgramme {
     }
 
     public void addStudent(Student student) {
-        this.students.add(student);
-        student.addCourse(this);
+        if(!this.students.contains(student)) {
+            this.students.add(student);
+            student.addCourse(this);
+        }
     }
 
     public void removeStudent(Student student) {
-        this.students.remove(student);
-        student.removeCourse(this);
+        if(this.students.contains(student)) {
+            this.students.remove(student);
+            student.removeCourse(this);
+        }
     }
 
     public void addModule(Module module) {
-        this.modules.add(module);
-        module.addCourse(this);
+        if(!this.modules.contains(module)) {
+            this.modules.add(module);
+            module.addCourse(this);
+        }
     }
 
     public void removeModule(Module module) {
-        this.modules.remove(module);
-        module.removeCourse(this);
+        if(this.modules.contains(module)) {
+            this.modules.remove(module);
+            module.removeCourse(this);
+        }
     }
 }

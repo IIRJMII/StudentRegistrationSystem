@@ -13,6 +13,10 @@ public class Module {
         return this.name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public ArrayList<Student> getStudents() {
         return this.students;
     }
@@ -22,22 +26,30 @@ public class Module {
     }
 
     public void addStudent(Student student) {
-        this.students.add(student);
-        student.addModule(this);
+        if(!this.students.contains(student)) {
+            this.students.add(student);
+            student.addModule(this);
+        }
     }
 
     public void removeStudent(Student student) {
-        this.students.remove(student);
-        student.removeModule(this);
+        if(this.students.contains(student)) {
+            this.students.remove(student);
+            student.removeModule(this);
+        }
     }
 
     public void addCourse(CourseProgramme course) {
-        this.courses.add(course);
-        course.addModule(this);
+        if(!this.courses.contains(course)) {
+            this.courses.add(course);
+            course.addModule(this);
+        }
     }
 
     public void removeCourse(CourseProgramme course) {
-        this.courses.remove(course);
-        course.removeModule(this);
+        if(this.courses.contains(course)) {
+            this.courses.remove(course);
+            course.removeModule(this);
+        }
     }
 }
