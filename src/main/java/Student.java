@@ -9,8 +9,8 @@ public class Student {
     private DateTime DOB;
     private int ID;
     private String username;
-    private ArrayList<String> courses = new ArrayList<String>();
-    private ArrayList<String> modules = new ArrayList<String>();
+    private ArrayList<CourseProgramme> courses = new ArrayList<CourseProgramme>();
+    private ArrayList<Module> modules = new ArrayList<Module>();
 
     public Student(String name, int age, DateTime DOB, int ID) {
         this.name = name;
@@ -20,71 +20,68 @@ public class Student {
         this.username = getUsername();
     }
 
-    private String getName() {
+    public String getName() {
         return this.name;
     }
 
-    private int getAge() {
+    public int getAge() {
         return this.age;
     }
 
-    private DateTime getDOB() {
+    public DateTime getDOB() {
         return this.DOB;
     }
 
-    private int getID() {
+    public int getID() {
         return this.ID;
     }
 
-    private String getUsername() {
+    public String getUsername() {
         return this.name + this.age;
     }
 
-    private ArrayList<String> getCourses() {
+    public ArrayList<CourseProgramme> getCourses() {
         return this.courses;
     }
 
-    private ArrayList<String> getModules() {
+    public ArrayList<Module> getModules() {
         return this.modules;
     }
 
-    private void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    private void setAge(int age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
-    private void setDOB(DateTime DOB) {
+    public void setDOB(DateTime DOB) {
         this.DOB = DOB;
     }
 
-    private void setID(int ID) {
+    public void setID(int ID) {
         this.ID = ID;
     }
 
-    private void setCourses(ArrayList<String> courses) {
-        this.courses = courses;
-    }
-
-    private void setModules(ArrayList<String> modules) {
-        this.modules = modules;
-    }
-
-    private void addCourse(String course) {
+    public void addCourse(CourseProgramme course) {
         this.courses.add(course);
+        course.addStudent(this);
     }
 
-    private void addModule(String module) {
-        this.modules.add(module);
-    }
-    private void removeCourse(String course) {
+    public void removeCourse(CourseProgramme course) {
         this.courses.remove(course);
+        course.removeStudent(this);
     }
 
-    private void removeModule(String module) {
+    public void addModule(Module module) {
+        this.modules.add(module);
+        module.addStudent(this);
+    }
+
+    public void removeModule(Module module) {
         this.courses.remove(module);
+        module.removeStudent(this);
     }
 
     public static void main(String args[]) {
@@ -94,10 +91,10 @@ public class Student {
         System.out.println("Student DOB: " + s.getDOB().toString(DateTimeFormat.shortDate()));
         System.out.println("Student ID: " + s.getID());
         System.out.println("Student username: " + s.getUsername());
-        s.addCourse("GY350");
+        //s.addCourse("GY350");
         System.out.println("Student courses: " + s.getCourses());
-        s.addModule("CT101");
-        s.addModule("CT102");
+        //s.addModule("CT101");
+        //s.addModule("CT102");
         System.out.println("Student modules: " + s.getModules());
     }
 }
