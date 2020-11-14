@@ -17,7 +17,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.github.IIRJMII</groupId>
+            <groupId>com.github.IIRJMII.StudentRegistrationSystem</groupId>
             <artifactId>StudentRegistrationSystem</artifactId>
             <version>1.0.1</version>
         </dependency>
