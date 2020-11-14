@@ -11,8 +11,8 @@ public class Student {
     private DateTime DOB;
     private int ID;
     private String username;
-    private ArrayList<CourseProgramme> courses = new ArrayList<CourseProgramme>();
-    private ArrayList<Module> modules = new ArrayList<Module>();
+    private ArrayList<CourseProgramme> courses = new ArrayList<>();
+    private ArrayList<Module> modules = new ArrayList<>();
 
     public Student(String name, DateTime DOB, int ID) {
         this.name = name;
@@ -85,7 +85,7 @@ public class Student {
 
     public void removeModule(Module module) {
         if(this.modules.contains(module)) {
-            this.courses.remove(module);
+            this.modules.remove(module);
             module.removeStudent(this);
         }
     }

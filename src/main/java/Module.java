@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 public class Module {
     private String name;
-    private ArrayList<Student> students = new ArrayList<Student>();
-    private ArrayList<CourseProgramme> courses = new ArrayList<CourseProgramme>();
+    private ArrayList<Student> students = new ArrayList<>();
+    private ArrayList<CourseProgramme> courses = new ArrayList<>();
 
     public Module(String name) {
         this.name = name;
