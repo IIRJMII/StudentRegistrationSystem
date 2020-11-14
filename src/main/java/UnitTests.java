@@ -2,9 +2,7 @@ import org.joda.time.DateTime;
 import org.joda.time.Years;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class UnitTests {
 
@@ -45,25 +43,25 @@ public class UnitTests {
         s1.addModule(m3);
 
         //check all 3 modules have been added
-        assertEquals(true, s1.getModules().contains(m1));
-        assertEquals(true, s1.getModules().contains(m2));
-        assertEquals(true, s1.getModules().contains(m3));
+        assertTrue(s1.getModules().contains(m1));
+        assertTrue(s1.getModules().contains(m2));
+        assertTrue(s1.getModules().contains(m3));
 
         //check student has been added to each of the modules
-        assertEquals(true, m1.getStudents().contains(s1));
-        assertEquals(true, m2.getStudents().contains(s1));
-        assertEquals(true, m3.getStudents().contains(s1));
+        assertTrue(m1.getStudents().contains(s1));
+        assertTrue(m2.getStudents().contains(s1));
+        assertTrue(m3.getStudents().contains(s1));
 
         //remove module 1
         s1.removeModule(m1);
 
         //check that only module 1 has been removed
-        assertEquals(false, s1.getModules().contains(m1));
-        assertEquals(true, s1.getModules().contains(m2));
-        assertEquals(true, s1.getModules().contains(m3));
+        assertFalse(s1.getModules().contains(m1));
+        assertTrue(s1.getModules().contains(m2));
+        assertTrue(s1.getModules().contains(m3));
 
         //check that student has been removed from module 1
-        assertEquals(false, m1.getStudents().contains(s1));
+        assertFalse(m1.getStudents().contains(s1));
 
     }
 
@@ -74,22 +72,22 @@ public class UnitTests {
         s1.addCourse(c2);
 
         //check that the courses have been added to student
-        assertEquals(true, s1.getCourses().contains(c1));
-        assertEquals(true, s1.getCourses().contains(c2));
+        assertTrue(s1.getCourses().contains(c1));
+        assertTrue(s1.getCourses().contains(c2));
 
         //check that student has been added to courses
-        assertEquals(true, c1.getStudents().contains(s1));
-        assertEquals(true, c2.getStudents().contains(s1));
+        assertTrue(c1.getStudents().contains(s1));
+        assertTrue(c2.getStudents().contains(s1));
 
         //remove course 1 from student
         s1.removeCourse(c1);
 
         //check that only course 1 has been removed from student
-        assertEquals(false, s1.getCourses().contains(c1));
-        assertEquals(true, s1.getCourses().contains(c2));
+        assertFalse(s1.getCourses().contains(c1));
+        assertTrue(s1.getCourses().contains(c2));
 
         //check that student has been removed from course 1
-        assertEquals(false, c1.getStudents().contains(s1));
+        assertFalse(c1.getStudents().contains(s1));
     }
 
     @Test
@@ -109,25 +107,25 @@ public class UnitTests {
         m1.addStudent(s3);
 
         //check that the students have been added to module
-        assertEquals(true, m1.getStudents().contains(s1));
-        assertEquals(true, m1.getStudents().contains(s2));
-        assertEquals(true, m1.getStudents().contains(s3));
+        assertTrue(m1.getStudents().contains(s1));
+        assertTrue(m1.getStudents().contains(s2));
+        assertTrue(m1.getStudents().contains(s3));
 
         //check that the module has been added to students
-        assertEquals(true, s1.getModules().contains(m1));
-        assertEquals(true, s2.getModules().contains(m1));
-        assertEquals(true, s3.getModules().contains(m1));
+        assertTrue(s1.getModules().contains(m1));
+        assertTrue(s2.getModules().contains(m1));
+        assertTrue(s3.getModules().contains(m1));
 
         //remove student 1 from module
         m1.removeStudent(s1);
 
         //check that only student 1 has been removed from the module
-        assertEquals(false, m1.getStudents().contains(s1));
-        assertEquals(true, m1.getStudents().contains(s2));
-        assertEquals(true, m1.getStudents().contains(s3));
+        assertFalse(m1.getStudents().contains(s1));
+        assertTrue(m1.getStudents().contains(s2));
+        assertTrue(m1.getStudents().contains(s3));
 
         //check that module has been removed from student
-        assertEquals(false, s1.getModules().contains(m1));
+        assertFalse(s1.getModules().contains(m1));
 
     }
 
@@ -138,22 +136,22 @@ public class UnitTests {
         m1.addCourse(c2);
 
         //check that the courses have been added to module
-        assertEquals(true, m1.getCourses().contains(c1));
-        assertEquals(true, m1.getCourses().contains(c2));
+        assertTrue(m1.getCourses().contains(c1));
+        assertTrue(m1.getCourses().contains(c2));
 
         //check that the module has been added to courses
-        assertEquals(true, c1.getModules().contains(m1));
-        assertEquals(true, c2.getModules().contains(m1));
+        assertTrue(c1.getModules().contains(m1));
+        assertTrue(c2.getModules().contains(m1));
 
         //remove course 1 from module
         m1.removeCourse(c1);
 
         //check that only course 1 was removed from the module
-        assertEquals(false, m1.getCourses().contains(c1));
-        assertEquals(true, m1.getCourses().contains(c2));
+        assertFalse(m1.getCourses().contains(c1));
+        assertTrue(m1.getCourses().contains(c2));
 
         //check that the module has been removed from course 1
-        assertEquals(false, c1.getModules().contains(m1));
+        assertFalse(c1.getModules().contains(m1));
     }
 
     @Test
@@ -164,25 +162,25 @@ public class UnitTests {
         c1.addStudent(s3);
 
         //check that the students have been added to course
-        assertEquals(true, c1.getStudents().contains(s1));
-        assertEquals(true, c1.getStudents().contains(s2));
-        assertEquals(true, c1.getStudents().contains(s3));
+        assertTrue(c1.getStudents().contains(s1));
+        assertTrue(c1.getStudents().contains(s2));
+        assertTrue(c1.getStudents().contains(s3));
 
         //check that the course has been added to students
-        assertEquals(true, s1.getCourses().contains(c1));
-        assertEquals(true, s2.getCourses().contains(c1));
-        assertEquals(true, s3.getCourses().contains(c1));
+        assertTrue(s1.getCourses().contains(c1));
+        assertTrue(s2.getCourses().contains(c1));
+        assertTrue(s3.getCourses().contains(c1));
 
         //remove student 1 from course
         c1.removeStudent(s1);
 
         //check that only student 1 has been removed
-        assertEquals(false, c1.getStudents().contains(s1));
-        assertEquals(true, c1.getStudents().contains(s2));
-        assertEquals(true, c1.getStudents().contains(s3));
+        assertFalse(c1.getStudents().contains(s1));
+        assertTrue(c1.getStudents().contains(s2));
+        assertTrue(c1.getStudents().contains(s3));
 
         //check that the course has been removed from student 1
-        assertEquals(false, s1.getCourses().contains(c1));
+        assertFalse(s1.getCourses().contains(c1));
     }
 
     @Test
@@ -193,24 +191,24 @@ public class UnitTests {
         c1.addModule(m3);
 
         //check that modules have been added to course
-        assertEquals(true, c1.getModules().contains(m1));
-        assertEquals(true, c1.getModules().contains(m2));
-        assertEquals(true, c1.getModules().contains(m3));
+        assertTrue(c1.getModules().contains(m1));
+        assertTrue(c1.getModules().contains(m2));
+        assertTrue(c1.getModules().contains(m3));
 
         //check that course has been added to modules
-        assertEquals(true, m1.getCourses().contains(c1));
-        assertEquals(true, m2.getCourses().contains(c1));
-        assertEquals(true, m3.getCourses().contains(c1));
+        assertTrue(m1.getCourses().contains(c1));
+        assertTrue(m2.getCourses().contains(c1));
+        assertTrue(m3.getCourses().contains(c1));
 
         //remove module 1
         c1.removeModule(m1);
 
         //check that only module 1 has been removed from course
-        assertEquals(false, c1.getModules().contains(m1));
-        assertEquals(true, c1.getModules().contains(m2));
-        assertEquals(true, c1.getModules().contains(m3));
+        assertFalse(c1.getModules().contains(m1));
+        assertTrue(c1.getModules().contains(m2));
+        assertTrue(c1.getModules().contains(m3));
 
         //check that course has been removed from module 1
-        assertEquals(false, m1.getCourses().contains(c1));
+        assertFalse(m1.getCourses().contains(c1));
     }
 }
