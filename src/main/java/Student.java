@@ -1,7 +1,5 @@
 import org.joda.time.DateTime;
-import org.joda.time.LocalDate;
 import org.joda.time.Years;
-import org.joda.time.format.DateTimeFormat;
 
 import java.util.ArrayList;
 
@@ -88,19 +86,5 @@ public class Student {
             this.modules.remove(module);
             module.removeStudent(this);
         }
-    }
-
-    public static void main(String args[]) {
-        Student s = new Student("Robert", new DateTime("1998-05-18"), 17431096);
-        System.out.println("Student name: " + s.getName());
-        System.out.println("Student age: " + s.getAge());
-        System.out.println("Student DOB: " + s.getDOB().toString(DateTimeFormat.shortDate()));
-        System.out.println("Student ID: " + s.getID());
-        System.out.println("Student username: " + s.getUsername());
-        //s.addCourse("GY350");
-        System.out.println("Student courses: " + s.getCourses());
-        //s.addModule("CT101");
-        //s.addModule("CT102");
-        System.out.println("Student modules: " + s.getModules());
     }
 }
