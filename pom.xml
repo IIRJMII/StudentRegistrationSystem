@@ -11,7 +11,7 @@
     <repositories>
         <repository>
             <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
+            <url>https://www.jitpack.io</url>
         </repository>
     </repositories>
 
@@ -19,7 +19,7 @@
         <dependency>
             <groupId>com.github.IIRJMII</groupId>
             <artifactId>StudentRegistrationSystem</artifactId>
-            <version>1.0.3</version>
+            <version>1.0.4</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
         <dependency>
