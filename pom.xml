@@ -19,7 +19,7 @@
         <dependency>
             <groupId>com.github.IIRJMII</groupId>
             <artifactId>StudentRegistrationSystem</artifactId>
-            <version>1.0.4</version>
+            <version>1.0.5</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
         <dependency>
