@@ -3,4 +3,5 @@ jdk: openjdk11
 build:
   ci:
     - mkdir -p shippable/testresults
-    - mvn clean test
+    - mkdir -p shippable/codecoverage
+    - mvn clean test cobertura:cobertura
