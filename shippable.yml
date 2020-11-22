@@ -1,2 +1,2 @@
 language: java
-jdk: corretto-11
+jdk: openjdk11
