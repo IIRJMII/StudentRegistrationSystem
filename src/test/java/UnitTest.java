@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class UnitTests {
+public class UnitTest {
 
     Student s1 = new Student("Elliott", new DateTime("1997-01-27"), 19384753);
     Student s2 = new Student("Angela", new DateTime("1996-08-11"), 19482057);
