@@ -4,4 +4,4 @@ build:
   ci:
     - mkdir -p shippable/testresults
     - mkdir -p shippable/codecoverage
-    - mvn clean test cobertura:cobertura
+    - mvn test
