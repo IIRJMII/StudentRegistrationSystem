@@ -2,4 +2,5 @@ language: java
 jdk: openjdk11
 build:
   ci:
+    - mkdir -p shippable/testresults
     - mvn install
