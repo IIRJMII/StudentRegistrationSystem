@@ -5,3 +5,4 @@ build:
     - mkdir -p shippable/testresults
     - mkdir -p shippable/codecoverage
     - mvn test
+    - cp -r target/surefire-reports/TEST-UnitTest.xml shippable/testresults
